@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +23,9 @@ class App extends StatelessWidget {
   }
 }
 
+/// Contains the widgets that will change colors
 class HomeScreen extends StatefulWidget {
+  /// Constructor for HomeScreen
   const HomeScreen({super.key});
 
   @override
@@ -29,11 +33,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
+  String _backgroundColorHex = 'FFFFFFFF';
 
-  void _incrementCounter() {
+  static const int _maxColorRange = 4294967295;
+  static const int baseOfHex = 16;
+
+  void setRandomColorHex() {
     setState(() {
-      _counter++;
+      _backgroundColorHex =
+          Random().nextInt(_maxColorRange).toRadixString(baseOfHex);
     });
   }
 
@@ -43,24 +51,24 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Color Generator'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Stack(
+        children: [
+          Container(
+            color: Color(int.parse(_backgroundColorHex, radix: baseOfHex)),
+          ),
+          const Center(
+            child: Text(
+              'Hello There!',
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.black,
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          ),
+          GestureDetector(
+            onTap: setRandomColorHex,
+          )
+        ],
       ),
     );
   }
