@@ -17,7 +17,7 @@ class _ColorChangerScreenState extends State<ColorChangerScreen> {
   int _backgroundColor = 0xFFFFFFFF;
   int _textColor = 0xFF000000;
 
-  void _setRandomBackgroundColor() {
+  void _setRandomColor() {
     _backgroundColor = ColorGenerator.getRandomColorValue();
     _textColor = ColorGenerator.calculateForegroundColor(_backgroundColor);
     setState(() {});
@@ -52,7 +52,7 @@ class _ColorChangerScreenState extends State<ColorChangerScreen> {
             ),
           ),
           GestureDetector(
-            onTap: _setRandomBackgroundColor,
+            onTap: _setRandomColor,
             onLongPress: () => Navigator.of(context)
                 .pushNamed(DisplayTemperatureScreen.routeName),
           )
