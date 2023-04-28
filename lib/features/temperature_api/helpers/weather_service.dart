@@ -13,17 +13,22 @@ class WeatherService {
       double latitude, double longitude) async {
     final Uri url = Uri.parse(
         "$_openWeatherEndPoint?lat=$latitude&lon=$longitude&appid=$_openWeatherAPIKey");
-    final http.Response response = await http.get(url);
+
+    final http.Response response;
+    try {
+      response = await http.get(url);
+    } catch (e) {
+      throw Exception('Please check your internet');
+    }
 
     final Map<String, dynamic> data =
         jsonDecode(response.body) as Map<String, dynamic>;
 
     final double temperature;
     try {
-      temperature =
-          double.parse(data['main']['temp'].toString()) - 273.15;
-    }
-    catch (e) {
+      temperature = double.parse(data['main']['temp'].toString()) -
+          273.15; // Converting from Kelvins to Celsius
+    } catch (e) {
       throw Exception('Invalid coordinates provided');
     }
 

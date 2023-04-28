@@ -67,7 +67,10 @@ class _CoordinateInputFormState extends State<CoordinateInputForm> {
                   });
                 },
           child: _loading
-              ? const CircularProgressIndicator()
+              ? Container(
+                  padding: const EdgeInsets.all(10.0),
+                  child: const CircularProgressIndicator(color: Colors.white),
+                )
               : const Text(
                   'Get Temperature',
                   style: TextStyle(fontSize: TextConstants.textSizeSmall),
