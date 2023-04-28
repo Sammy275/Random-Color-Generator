@@ -1,16 +1,9 @@
 # color_generator
 
-An application that generates random color in the background on touch
+An application that generates random color in the background on touch.
+If you long press the screen then you will be taken to a new section. The new section shows you the temperature of any place but you will have to enter the coordinates for that place.
+I have tried to write the code so that it can be scalable and readable.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The project was developed on Flutter version 3.7.3.
