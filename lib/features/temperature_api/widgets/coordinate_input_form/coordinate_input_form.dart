@@ -5,6 +5,7 @@ import './custom_text_field.dart';
 import '../../../../app_constants/text_constants.dart';
 
 class CoordinateInputForm extends StatefulWidget {
+  /// This callback function is the function that displays the temperature and sets the background color
   final Function(double) callback;
 
   /// Displays the fields to enter coordinates.

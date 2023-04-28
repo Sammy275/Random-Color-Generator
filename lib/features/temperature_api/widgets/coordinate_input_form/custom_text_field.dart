@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
+  /// Text controller for the field
   TextEditingController controller;
+  /// The label for the text field
   String labelText;
 
   /// Text Fields to get coordinate cata
