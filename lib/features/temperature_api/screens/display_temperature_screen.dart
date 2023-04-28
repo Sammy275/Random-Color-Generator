@@ -29,6 +29,7 @@ class _DisplayTemperatureScreenState extends State<DisplayTemperatureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Container(
         alignment: Alignment.center,
         color: Color(_backgroundColor),
