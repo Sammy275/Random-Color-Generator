@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import './features/color_changer/screens/color_changer_screen.dart';
 
+import './features/temperature_api/screens/display_temperature_screen.dart';
+
 void main() {
   runApp(const App());
 }
@@ -20,6 +22,10 @@ class App extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       home: const ColorChangerScreen(),
+      routes: {
+        DisplayTemperatureScreen.routeName: (ctx) =>
+            const DisplayTemperatureScreen(),
+      },
     );
   }
 }

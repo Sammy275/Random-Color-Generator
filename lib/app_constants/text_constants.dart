@@ -2,7 +2,7 @@
 
 class TextConstants {
   /// Small text size
-  static const double textSizesmall = 14.0;
+  static const double textSizeSmall = 14.0;
 
   /// Normal text size
   static const double textSizeNormal = 18.0;

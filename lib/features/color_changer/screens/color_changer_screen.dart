@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../app_constants/text_constants.dart';
-import '../helpers/color_generator.dart';
+import '../../../helpers/color_generator.dart';
+import '../../temperature_api/screens/display_temperature_screen.dart';
 
 /// This screen will change color when tapped
 class ColorChangerScreen extends StatefulWidget {
@@ -29,16 +30,31 @@ class _ColorChangerScreenState extends State<ColorChangerScreen> {
         children: [
           Container(color: Color(_backgroundColor)),
           Center(
-            child: Text(
-              'Hello There!',
-              style: TextStyle(
-                fontSize: TextConstants.textSizeMedium,
-                color: Color(_textColor),
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Hello There!',
+                  style: TextStyle(
+                    fontSize: TextConstants.textSizeMedium,
+                    color: Color(_textColor),
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                const Text(
+                  'Press long enough to get weather details',
+                  style: TextStyle(
+                    fontSize: TextConstants.textSizeSmall,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
             ),
           ),
           GestureDetector(
             onTap: _setRandomBackgroundColor,
+            onLongPress: () => Navigator.of(context)
+                .pushNamed(DisplayTemperatureScreen.routeName),
           )
         ],
       ),
